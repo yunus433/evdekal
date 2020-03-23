@@ -1,5 +1,5 @@
 const moment = require('moment-timezone');
-const os = require('os');
+const ip = require("ip");
 
 const User = require('../../models/User/User');
 
@@ -9,7 +9,7 @@ module.exports = (req, res) => {
     return res.status(200);
   }
 
-  const ipAddress = os.networkInterfaces().en0[1].address;;
+  const ipAddress = ip.address();
   const threeAm = 10800000;
   const time = Date.now();
   const day =  moment(time-threeAm).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY");
