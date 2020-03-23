@@ -284,6 +284,11 @@ body {
   .total-number-wrapper {
     margin-top: 10px;
   }
+  .response-text {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
 @keyframes openCitiesWrapperAnimation {
