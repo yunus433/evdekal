@@ -37,6 +37,8 @@ const {
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+app.set("trust proxy", true);
+
 // connect mongoose to server
 mongoose.connect(mongoUri, { useNewUrlParser: true, auto_reconnect: true, useUnifiedTopology: true, useCreateIndex: true });
 
