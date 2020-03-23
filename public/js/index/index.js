@@ -1,4 +1,9 @@
 window.onload = () => {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-161657533-1');
+
   const socket = io();
   const day = document.querySelector('.display-none').value;
   let clicked = false;

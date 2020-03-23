@@ -8,15 +8,15 @@ module.exports = (req, res) => {
     return res.status(200);
   }
 
-  if (req.session && req.session.sent) {
-    res.json({ "err": "second time" });
-    return res.status(200);
-  }
-
   const ipAddress = req.ip;
   const threeAm = 10800000;
   const time = Date.now();
   const day =  moment(time-threeAm).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY");
+
+  if (req.session && req.session.sent == day) {
+    res.json({ "err": "second time" });
+    return res.status(200);
+  }
 
   User.find({
     originalIp: day + ":" + ipAddress
@@ -44,7 +44,7 @@ module.exports = (req, res) => {
         res.json({ "err": "unknown" });
         return res.status(200);
       } else {
-        req.session.sent = true;
+        req.session.sent = day;
         res.json({ user });
         return res.status(200);
       }
