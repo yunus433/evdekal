@@ -36,7 +36,6 @@ const {
 // add pug as views to server
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
-
 app.set("trust proxy", true);
 
 // connect mongoose to server
