@@ -25,3 +25,13 @@ block content
       .main-button
         span Evdeyim!
       span.response-text Response
+    .all-header-responsive
+      span.all-header-title Evinde Misin?
+      .total-number-wrapper
+        span.total-number-info BUGÜN EVDE KALAN KİŞİ SAYISI
+        span.total-number= users.length
+      .city-wrapper
+        each city in cities
+          .each-city
+            span.city-name= city
+            span.city-number(id = city)= users.filter(user => user.city == city).length

@@ -9,6 +9,10 @@ window.onload = () => {
   const responseText = document.querySelector('.response-text');
 
   socket.on('connect', () => {
+    socket.emit('join', {
+      room: day
+    });
+
     socket.on('newData', params => {
       if (params && params.day && params.city) {
         if (params.day == day) {
@@ -74,10 +78,13 @@ window.onload = () => {
             } else {
               socket.emit('newDataSend', {
                 city: response.user.city,
-                day: response.user.day
+                day: response.user.day,
+                to: response.user.day
               }, err => {
                 if (err) return alert('Bir hata oluştu, lütfen tekrar dene');
-      
+                
+                totalNumber.innerHTML = parseInt(totalNumber.innerHTML) + 1;
+                document.getElementById(response.user.city).innerHTML = parseInt(document.getElementById(response.user.city).innerHTML) + 1;
                 responseText.innerHTML = "Bize destek verdiğin için teşekkürler. Yarın yeniden sistemi kullanmayı ve sistemi tanıdıklarına önermeyi unutma. #evindemisin?";
                 responseText.style.visibility = "initial";
               });

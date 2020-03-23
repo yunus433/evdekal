@@ -9,7 +9,12 @@ module.exports = (req, res) => {
     return res.status(200);
   }
 
-  const ipAddress = ip.address();
+  const ifaces = require('os').networkInterfaces();
+  const ipAddress = Object.keys(ifaces).reduce(function (result, dev) {
+    return result.concat(ifaces[dev].reduce(function (result, details) {
+      return result.concat(details.family === 'IPv4' && !details.internal ? [details.address] : []);
+    }, []));
+  });
   const threeAm = 10800000;
   const time = Date.now();
   const day =  moment(time-threeAm).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY");
