@@ -4,6 +4,7 @@ window.onload = () => {
   let clicked = false;
   let selectedCity = null;
   const totalNumber = document.querySelector('.total-number');
+  const totalNumberResponsive = document.getElementById('total-number-responsive');
   const selectCityButton = document.querySelector('.select-city-button');
   const citiesWrapper = document.querySelector('.cities-wrapper');
   const responseText = document.querySelector('.response-text');
@@ -17,7 +18,8 @@ window.onload = () => {
       if (params && params.day && params.city) {
         if (params.day == day) {
           totalNumber.innerHTML = parseInt(totalNumber.innerHTML) + 1;
-          document.getElementById(params.city).innerHTML = parseInt(document.getElementById(params.city).innerHTML) + 1;
+          totalNumberResponsive.innerHTML = parseInt(totalNumberResponsive.innerHTML) + 1;
+          document.getElementById(params.city+"responsive").innerHTML = parseInt(document.getElementById(params.city+"responsive").innerHTML) + 1;
         }
       }
     });
@@ -68,8 +70,11 @@ window.onload = () => {
               if (response.err == 'bad request') {
                 responseText.innerHTML = "Lütfen şehrini seç.";
                 responseText.style.visibility = "initial"
-              } else if (response.err == 'already sent') {
+              } else if (response.err == 'second time') {
                 responseText.innerHTML = "Bugün çoktan data göndermişsin, yarın yeniden gelmeyi unutma!";
+                responseText.style.visibility = "initial"
+              } else if (response.err == 'already sent') {
+                responseText.innerHTML = "Bu IP adresi bugün çok fazla kullanılmış, başka bir internete bağlanıp dene.";
                 responseText.style.visibility = "initial";
               } else {
                 responseText.innerHTML = "Bilinmeyen bir hata oluştu, lütfen tekrar dene.";
@@ -84,7 +89,9 @@ window.onload = () => {
                 if (err) return alert('Bir hata oluştu, lütfen tekrar dene');
                 
                 totalNumber.innerHTML = parseInt(totalNumber.innerHTML) + 1;
+                totalNumberResponsive.innerHTML = parseInt(totalNumberResponsive.innerHTML) + 1;
                 document.getElementById(response.user.city).innerHTML = parseInt(document.getElementById(response.user.city).innerHTML) + 1;
+                document.getElementById(response.user.city+"responsive").innerHTML = parseInt(document.getElementById(response.user.city+"responsive").innerHTML) + 1;
                 responseText.innerHTML = "Bize destek verdiğin için teşekkürler. Yarın yeniden sistemi kullanmayı ve sistemi tanıdıklarına önermeyi unutma. #evindemisin?";
                 responseText.style.visibility = "initial";
               });

@@ -29,9 +29,9 @@ block content
       span.all-header-title Evinde Misin?
       .total-number-wrapper
         span.total-number-info BUGÜN EVDE KALAN KİŞİ SAYISI
-        span.total-number= users.length
+        span.total-number#total-number-responsive= users.length
       .city-wrapper
         each city in cities
           .each-city
             span.city-name= city
-            span.city-number(id = city)= users.filter(user => user.city == city).length
+            span.city-number(id = city + "responsive")= users.filter(user => user.city == city).length

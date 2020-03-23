@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
+  originalIp: {
+    type: String,
+    required: true
+  },
   ip: {
     type: String,
     required: true,
