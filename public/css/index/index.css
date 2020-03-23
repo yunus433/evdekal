@@ -191,6 +191,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 15px 0px;
   border-bottom: 1px solid rgb(186, 186, 186);
   color: rgb(6, 199, 147);
@@ -254,11 +255,9 @@ body {
 @media only screen and (orientation: portrait) {
   .main-wrapper {
     flex-direction: column;
+    display: block;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
-  }
-  .all-content {
-    flex: initial;
   }
   .all-header {
     display: none;
@@ -271,7 +270,7 @@ body {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-    width: 100%;
+    width: auto;
   }
   .all-content-info {
     width: 100%;
