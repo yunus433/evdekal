@@ -1,15 +1,18 @@
 const moment = require('moment-timezone');
+const os = require('os');
 
 const User = require('../../models/User/User');
 
 module.exports = (req, res) => {
-  if (!req.body || !req.body.city)
-    return res.redirect('/');
+  if (!req.body || !req.body.city) {
+    res.json({ "err": "bad request" });
+    return res.status(200);
+  }
 
-  const ipAddress = req.ip;
-  const fiveAm = 18000000;
+  const ipAddress = os.networkInterfaces().en0[1].address;;
+  const threeAm = 10800000;
   const time = Date.now();
-  const day =  moment(time-fiveAm).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY");
+  const day =  moment(time-threeAm).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY");
 
   const newUserData = {
     ip: day + ":" + ipAddress,
@@ -21,6 +24,15 @@ module.exports = (req, res) => {
   const newUser = new User(newUserData);
 
   newUser.save((err, user) => {
-    console.log(err, user);
+    if (err && err.code == 11000) {
+      res.json({ "err": "already sent" });
+      return res.status(200);
+    } else if (err) {
+      res.json({ "err": "unknown" });
+      return res.status(200);
+    } else {
+      res.json({ user });
+      return res.status(200);
+    }
   });
 }
