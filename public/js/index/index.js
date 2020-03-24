@@ -49,12 +49,15 @@ window.onload = () => {
           citiesWrapper.style.display = 'none';
         }, 300);
       } else if (event.target.classList.contains('select-city-button') || event.target.parentNode.classList.contains('select-city-button')) {
-        selectCityButton.classList.add('clicked');
-        selectCityInput.focus();
-        clicked = true;
-        citiesWrapper.style.display = 'flex';
-        citiesWrapper.classList.remove('close-cities-animation-class');
-        citiesWrapper.classList.add('open-cities-animation-class');
+        document.querySelector('.main-wrapper').scrollTop = 0;
+        setTimeout(() => {
+          selectCityButton.classList.add('clicked');
+          selectCityInput.focus();
+          clicked = true;
+          citiesWrapper.style.display = 'flex';
+          citiesWrapper.classList.remove('close-cities-animation-class');
+          citiesWrapper.classList.add('open-cities-animation-class');
+        }, 100);
       } else if (clicked) {
         citiesWrapper.classList.remove('open-cities-animation-class');
         citiesWrapper.classList.add('close-cities-animation-class');
@@ -143,6 +146,15 @@ window.onload = () => {
           citiesWrapper.appendChild(newSpan);
         }
       });
+    };
+
+    document.querySelector('.main-wrapper').onscroll = (event) => {
+      citiesWrapper.classList.remove('open-cities-animation-class');
+      citiesWrapper.classList.add('close-cities-animation-class');
+      clicked = false;
+    
+      selectCityButton.classList.remove('clicked');
+      citiesWrapper.style.display = 'none';
     };
   });
 }

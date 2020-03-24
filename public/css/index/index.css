@@ -164,7 +164,7 @@ body {
   font-size: 125%;
   border: none;
   outline: none;
-  padding-left: 20px;
+  margin-left: 20px;
   color: rgb(6, 199, 147);
   font-weight: 600;
   background-color: rgb(250, 250, 250);
@@ -319,6 +319,54 @@ body {
 }
 
 @media only screen and (orientation: portrait) {
+  .main-wrapper {
+    flex-direction: column;
+    display: block;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .all-header {
+    display: none;
+  }
+  .all-header-responsive {
+    display: flex;
+  }
+  .all-content-title {
+    margin-top: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: auto;
+  }
+  .all-content-info {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .select-city-button, .main-button, .cities-wrapper {
+    width: 70vw;
+  }
+  .total-number-wrapper {
+    margin-top: 10px;
+  }
+  .response-text {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .content-header-line {
+    top: 10px;
+    bottom: auto;
+  }
+  .copyright-wrapper, .info-wrapper {
+    width: 98vw;
+    margin-top: 0px;
+    margin-left: 1vw;
+    transform: translateY(0px);
+  }
+}
+
+@media only screen and (width: 500px) {
   .main-wrapper {
     flex-direction: column;
     display: block;
