@@ -186,6 +186,7 @@ body {
   position: absolute;
   width: 20vw;
   margin-top: -3px;
+  z-index: 2;
 }
 .select-each-city {
   width: 100%;
@@ -240,15 +241,60 @@ body {
   text-align: center;
 }
 
-.communication-text {
+.content-header-line {
   position: absolute;
   bottom: 20px;
   right: 20px;
   color: rgb(6, 199, 147);
   font-weight: 600;
   font-size: 100%;
-  background-color: rgb(250, 250, 250);
   padding: 2px;
+  display: flex;
+  align-items: center;
+}
+.content-header-line i {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.copyright-wrapper {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  background-color: rgb(253, 253, 253);
+  width: 60vw;
+  padding: 20px;
+  margin-left: 50%;
+  margin-top: 25%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  flex-direction: column;
+  border-radius: 15px;
+  border: 2px solid rgb(186, 186, 186);
+}
+.copyright-wrapper span {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.info-wrapper {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  background-color: rgb(253, 253, 253);
+  width: 60vw;
+  padding: 20px;
+  margin-left: 50%;
+  margin-top: 25%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  flex-direction: column;
+  border-radius: 15px;
+  border: 2px solid rgb(186, 186, 186);
+}
+.info-wrapper span {
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1200px) and (orientation: landscape) {
@@ -277,7 +323,7 @@ body {
     display: flex;
   }
   .all-content-title {
-    margin-top: 40px;
+    margin-top: 60px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
@@ -298,6 +344,10 @@ body {
     width: 100%;
     margin-left: 20px;
     margin-right: 20px;
+  }
+  .content-header-line {
+    top: 10px;
+    bottom: auto;
   }
 }
 

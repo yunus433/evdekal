@@ -115,6 +115,18 @@ window.onload = () => {
           }
         }
       }
+
+      if (event.target.classList.contains('fa-copyright')) {
+        document.querySelector('.copyright-wrapper').style.display = 'flex';
+      } else {
+        document.querySelector('.copyright-wrapper').style.display = 'none';
+      }
+
+      if (event.target.classList.contains('fa-info-circle')) {
+        document.querySelector('.info-wrapper').style.display = 'flex';
+      } else {
+        document.querySelector('.info-wrapper').style.display = 'none';
+      }
     });
   });
 }

@@ -1,6 +1,18 @@
 extends ./../partials/head
 block content
   input.display-none(type="text" value=day)
+  .copyright-wrapper
+    span Gizlilik Politikası:
+    span Kullanılacak ve işlenecek bilgiler, yalnızca bu kişinin kendi istemiyle veri girmesi halinde mümkündür. 
+    span Toplanan kişisel veriler IP adresi kayıtları, tarayıcı tarafından toplanan çerez verileri ile gezinme süre ve detaylarını içeren veriler ve konum verileri ile sınırlıdır. Verilerin toplanmasındaki amaç, uygulamanın gereği dolayısıyla anonim bir şekilde tanımlanan IP adresinin 24 saat içerisinde ikinci kez kullanımını engellemektir. 
+    span Tespit edilen ve kaydedilen veriler 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamı ve kişisel verilerin toplanması ile ilgili açıklanan amaçlar dışında üçüncü kişiler ile paylaşılmayacak, satılmayacak veya kullandırılmayacaktır. 
+    span İşbu Gizlilik Politikasına ilişkin olası değişiklikler bu sayfada yayınlanacaktır. Bu çerçevede, size ait hangi bilgilerin saklandığına ve bu bilgilerin nasıl kullanıldığına dair güncel olarak bilgi almanıza olanak sağlanacaktır. Bu gizlilik politikası hakkında sorularınız varsa bizimle iletişime geçebilirsiniz: info@evindemisin.com
+    span Korona ile mücadelede hep beraber! Ben evimdeyim peki ya sen #evindemisin?
+    span Copyright 2020 ® Yunus Gürlek
+  .info-wrapper
+    span Evindemisin.com Biz kimiz?
+    span Bu zor dönemde birbirimize destek olmak ve Türkiye'de kaç kişinin Coronavirus tehlikesine karşı sosyal teması azaltıp evde kaldığı görmek amacıyla bir grup ögrenci olarak evindemisin.com adlı siteyi kurduk. Eğer sen de evindeysen, siteye girip evdeyim butonuna basarak bu harekete destek verebilirsin. 
+    span Unutma, #EvdeKal can kurtar! Sen de evinde misin?
   .main-wrapper
     .all-header
       span.all-header-title Evinde Misin?
@@ -25,7 +37,10 @@ block content
       .main-button
         span Evdeyim!
       span.response-text Response
-      span.communication-text İletişim: info@evindemisin.com
+      .content-header-line
+        i.fas.fa-copyright
+        i.fas.fa-info-circle
+        a(href="https://twitter.com/intent/tweet?button_hashtag=EvdeKal&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false") Tweet #EvdeKal
     .all-header-responsive
       span.all-header-title Evinde Misin?
       .total-number-wrapper
