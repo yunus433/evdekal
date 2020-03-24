@@ -12,12 +12,10 @@ module.exports = (req, res) => {
   const time = Date.now();
   const day =  moment(time-threeAm).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY");
 
-  User.find({
-    day
-  }, async (err, users) => {
+  User.find({}, async (err, users) => {
     if (err) return res.render('index/index', {
       page: 'index/index',
-      title: '#evdekal',
+      title: '#EvindeMisin',
       includes: {
         external: ['js', 'css', 'socket.io', 'fontawesome']
       },
@@ -61,7 +59,7 @@ module.exports = (req, res) => {
   
     return res.render('index/index', {
       page: 'index/index',
-      title: '#evdekal',
+      title: '#EvindeMisin',
       includes: {
         external: ['js', 'css', 'socket.io', 'fontawesome']
       },
