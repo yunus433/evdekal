@@ -24,7 +24,13 @@ window.onload = () => {
         if (params.day == day) {
           totalNumber.innerHTML = parseInt(totalNumber.innerHTML) + 1;
           totalNumberResponsive.innerHTML = parseInt(totalNumberResponsive.innerHTML) + 1;
-          document.getElementById(params.city+"responsive").innerHTML = parseInt(document.getElementById(params.city+"responsive").innerHTML) + 1;
+          const city = document.getElementById(params.city), cityResponsive = document.getElementById(params.city+"responsive");
+          city.innerHTML = parseInt(city.innerHTML) + 1;
+          while (city.parentNode.previousElementSibling && parseInt(city.parentNode.previousElementSibling.childNodes[1].innerHTML) <= parseInt(city.innerHTML))
+            city.parentNode.parentNode.insertBefore(city.parentNode, city.parentNode.previousElementSibling);
+          cityResponsive.innerHTML = parseInt(cityResponsive.innerHTML) + 1;
+          while (cityResponsive.parentNode.previousElementSibling && parseInt(cityResponsive.parentNode.previousElementSibling.childNodes[1].innerHTML) <= parseInt(cityResponsive.innerHTML))
+            cityResponsive.parentNode.parentNode.insertBefore(cityResponsive.parentNode, cityResponsive.parentNode.previousElementSibling);
         }
       }
     });
@@ -95,8 +101,13 @@ window.onload = () => {
                 
                 totalNumber.innerHTML = parseInt(totalNumber.innerHTML) + 1;
                 totalNumberResponsive.innerHTML = parseInt(totalNumberResponsive.innerHTML) + 1;
-                document.getElementById(response.user.city).innerHTML = parseInt(document.getElementById(response.user.city).innerHTML) + 1;
-                document.getElementById(response.user.city+"responsive").innerHTML = parseInt(document.getElementById(response.user.city+"responsive").innerHTML) + 1;
+                const city = document.getElementById(response.user.city), cityResponsive = document.getElementById(response.user.city+"responsive");
+                city.innerHTML = parseInt(city.innerHTML) + 1;
+                while (city.parentNode.previousElementSibling && parseInt(city.parentNode.previousElementSibling.childNodes[1].innerHTML) <= parseInt(city.innerHTML))
+                  city.parentNode.parentNode.insertBefore(city.parentNode, city.parentNode.previousElementSibling);
+                cityResponsive.innerHTML = parseInt(cityResponsive.innerHTML) + 1;
+                while (cityResponsive.parentNode.previousElementSibling && parseInt(cityResponsive.parentNode.previousElementSibling.childNodes[1].innerHTML) <= parseInt(cityResponsive.innerHTML))
+                  cityResponsive.parentNode.parentNode.insertBefore(cityResponsive.parentNode, cityResponsive.parentNode.previousElementSibling);
                 responseText.innerHTML = "Bize destek verdiğin için teşekkürler. Yarın yeniden sistemi kullanmayı ve sistemi tanıdıklarına önermeyi unutma. #evindemisin?";
                 responseText.style.visibility = "initial";
               });

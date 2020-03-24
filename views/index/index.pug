@@ -8,13 +8,13 @@ block content
         span.total-number-info BUGÜN EVDE KALAN KİŞİ SAYISI
         span.total-number= users.length
       .city-wrapper
-        each city in cities
+        each city in sortedCities
           .each-city
-            span.city-name= city
-            span.city-number(id = city)= users.filter(user => user.city == city).length
+            span.city-name= city.name
+            span.city-number(id = city.name)= city.number
     .all-content
       span.all-content-title Evde olduğunu günlük olarak bildir, seninle birlikte kaç kişi evde hemen gör!
-      span.all-content-info ŞEHRİ SEÇ, BUTONA TIKLA, HEMEN BİLDİR!
+      span.all-content-info ŞEHRİ SEÇ, BUTONA TIKLA, BİZE KATIL!
       .cities-outer-wrapper
         .select-city-button
           span Şehir Seç
@@ -32,7 +32,7 @@ block content
         span.total-number-info BUGÜN EVDE KALAN KİŞİ SAYISI
         span.total-number#total-number-responsive= users.length
       .city-wrapper
-        each city in cities
+        each city in sortedCities
           .each-city
-            span.city-name= city
-            span.city-number(id = city + "responsive")= users.filter(user => user.city == city).length
+            span.city-name= city.name
+            span.city-number(id = city.name + "responsive")= city.number
