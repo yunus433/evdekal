@@ -1,6 +1,7 @@
 extends ./../partials/head
 block content
-  input.display-none(type="text" value=day)
+  input.display-none#day-json(type="text" value=day)
+  input.display-none#cities-json(type="text" value=JSON.stringify(cities))
   .copyright-wrapper
     span Gizlilik Politikası:
     span Kullanılacak ve işlenecek bilgiler, yalnızca bu kişinin kendi istemiyle veri girmesi halinde mümkündür. 
@@ -17,7 +18,7 @@ block content
     .all-header
       span.all-header-title Evinde Misin?
       .total-number-wrapper
-        span.total-number-info BUGÜN EVDE KALAN KİŞİ SAYISI
+        span.total-number-info EVİNDE KALAN KİŞİ SAYISI
         span.total-number= users.length
       .city-wrapper
         each city in sortedCities
@@ -29,12 +30,12 @@ block content
       span.all-content-info ŞEHRİ SEÇ, BUTONA TIKLA, BİZE KATIL!
       .cities-outer-wrapper
         .select-city-button
-          span Şehir Seç
+          input.select-city-input(type="text" placeholder="Şehir Seç")
           image(src="/res/images/open-button.png")
         .cities-wrapper
           each city in cities
             span.select-each-city= city
-      .main-button
+      button.main-button
         span Evdeyim!
       span.response-text Response
       .content-header-line

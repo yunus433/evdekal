@@ -4,13 +4,16 @@ window.onload = () => {
   gtag('js', new Date());
   gtag('config', 'UA-161657533-1');
 
+  const cities = JSON.parse(document.getElementById('cities-json').value);
+  const day = document.getElementById('day-json').value;
+
   const socket = io();
-  const day = document.querySelector('.display-none').value;
   let clicked = false;
   let selectedCity = null;
   const totalNumber = document.querySelector('.total-number');
   const totalNumberResponsive = document.getElementById('total-number-responsive');
   const selectCityButton = document.querySelector('.select-city-button');
+  const selectCityInput = document.querySelector('.select-city-input');
   const citiesWrapper = document.querySelector('.cities-wrapper');
   const responseText = document.querySelector('.response-text');
 
@@ -36,7 +39,7 @@ window.onload = () => {
     });
   
     document.addEventListener('click', event => {
-      if ((event.target.classList.contains('select-city-button') && event.target.classList.contains('clicked')) || (event.target.parentNode.classList.contains('select-city-button') && event.target.parentNode.classList.contains('clicked'))) {
+      if ((event.target.classList.contains('select-city-button') && event.target.classList.contains('clicked') && !event.target.classList.contains('select-city-input')) || (event.target.parentNode.classList.contains('select-city-button') && event.target.parentNode.classList.contains('clicked') && !event.target.classList.contains('select-city-input'))) {
         citiesWrapper.classList.remove('open-cities-animation-class');
         citiesWrapper.classList.add('close-cities-animation-class');
         clicked = false;
@@ -47,6 +50,7 @@ window.onload = () => {
         }, 300);
       } else if (event.target.classList.contains('select-city-button') || event.target.parentNode.classList.contains('select-city-button')) {
         selectCityButton.classList.add('clicked');
+        selectCityInput.focus();
         clicked = true;
         citiesWrapper.style.display = 'flex';
         citiesWrapper.classList.remove('close-cities-animation-class');
@@ -62,7 +66,7 @@ window.onload = () => {
       }
   
       if (event.target.className == 'select-each-city') {
-        selectCityButton.childNodes[0].innerHTML = event.target.innerHTML;
+        selectCityButton.childNodes[0].value = event.target.innerHTML;
         selectedCity = event.target.innerHTML;
       }
   
@@ -128,5 +132,17 @@ window.onload = () => {
         document.querySelector('.info-wrapper').style.display = 'none';
       }
     });
+
+    selectCityInput.oninput = (event) => {
+      citiesWrapper.innerHTML = "";
+      cities.forEach(city => {
+        if (city.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()) !== -1) {
+          const newSpan = document.createElement('span');
+          newSpan.classList.add('select-each-city');
+          newSpan.innerHTML = city;
+          citiesWrapper.appendChild(newSpan);
+        }
+      });
+    };
   });
 }
