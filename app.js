@@ -27,6 +27,7 @@ const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/evdekal";
 
 // require local route controllers
 const indexRouteController = require('./routes/indexRoute');
+const adminRouteController = require('./routes/adminRoute');
 
 // require variables from dotenv file
 const {
@@ -76,6 +77,7 @@ app.use(helmet());
 
 // add route controllers
 app.use('/', indexRouteController);
+app.use('/admin', adminRouteController);
 
 // listen for socket.io connection
 io.on('connection', (socket) => {

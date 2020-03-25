@@ -1,0 +1,7 @@
+extends ./../partials/head
+block content
+  .main-wrapper
+    form.admin-form(action="/admin/login" method="POST")
+      span Admin Girişi
+      input(type="password" name="password" required placeholder="Şifre")
+      button Giriş

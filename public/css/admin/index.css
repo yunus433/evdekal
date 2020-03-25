@@ -1,0 +1,78 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;  
+  font-family: "Source Sans Pro";
+}
+html {
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  height: 100vh;
+	background-size: cover;
+}
+body {
+  font-family: "Source Sans Pro";
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  bottom: 0px;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(250, 250, 250);
+}
+
+.send-form {
+  width: 50vw;
+  padding: 20px;
+  background-color: rgb(245, 245, 245);
+  border: 2px solid rgb(128, 128, 128);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+}
+.send-form span {
+  font-size: 200%;
+  color: rgb(6, 199, 147);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.send-form input {
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid rgb(128, 128, 128);
+  background-color: rgb(250, 250, 250);
+  outline-color: rgb(6, 199, 147);
+  font-size: 150%;
+}
+.send-form select {
+  margin-bottom: 20px;
+  font-size: 150%;
+}
+.send-form button {
+  width: 25%;
+  background-color: rgb(6, 199, 147);
+  color: rgb(245, 245, 245);
+  font-size: 200%;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-weight: 600;
+}

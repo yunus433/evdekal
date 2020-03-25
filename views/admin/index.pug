@@ -1,0 +1,10 @@
+extends ./../partials/head
+block content
+  .main-wrapper
+    form.send-form(action="/admin" method="POST")
+      span Şehir seç ve rakam girip gönder.
+      input(type="number" placeholder="Rakam" name="number")
+      select(name="city")
+        each city in cities
+          option(value=city)= city
+      button Gönder
