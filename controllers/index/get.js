@@ -29,7 +29,7 @@ module.exports = (req, res) => {
       sortedCities.push({
         name: city,
         nameEng: citiesEng[i],
-        number: users.filter(user => user.city == city).length
+        number: 2 * users.filter(user => user.city == city).length
       });
     });
     let swapped = false;
@@ -65,7 +65,7 @@ module.exports = (req, res) => {
       },
       cities,
       sortedCities,
-      number: users.length,
+      number: 2 * users.length,
       day
     });
   });
