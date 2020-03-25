@@ -26,8 +26,8 @@ module.exports = (req, res) => {
       day
     });
 
-    await cities.forEach(city => {
-      cityNumbers[city]++;
+    await users.forEach(user => {
+      cityNumbers[user.city]++;
     });
 
     await cities.forEach((city, i) => {
