@@ -267,6 +267,20 @@ body {
   margin-right: 10px;
   cursor: pointer;
 }
+.share-button {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: -15px;
+  margin-left: -20px;
+}
+.share-image {
+  height: 100%;
+}
+.twitter-button {
+  margin-left: 5px;
+}
 
 .copyright-wrapper {
   display: none;
