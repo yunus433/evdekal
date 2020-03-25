@@ -19,7 +19,7 @@ block content
       span.all-header-title Evinde Misin?
       .total-number-wrapper
         span.total-number-info EVİNDE KALAN KİŞİ SAYISI
-        span.total-number= users.length
+        span.total-number= number
       .city-wrapper
         each city in sortedCities
           .each-city
@@ -45,8 +45,8 @@ block content
     .all-header-responsive
       span.all-header-title Evinde Misin?
       .total-number-wrapper
-        span.total-number-info BUGÜN EVDE KALAN KİŞİ SAYISI
-        span.total-number#total-number-responsive= users.length
+        span.total-number-info EVİNDE KALAN KİŞİ SAYISI
+        span.total-number#total-number-responsive= number
       .city-wrapper
         each city in sortedCities
           .each-city

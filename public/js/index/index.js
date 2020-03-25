@@ -144,6 +144,10 @@ window.onload = () => {
           newSpan.classList.add('select-each-city');
           newSpan.innerHTML = city;
           citiesWrapper.appendChild(newSpan);
+
+          while (newSpan.previousElementSibling && city.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()) < newSpan.previousElementSibling.innerHTML.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase())) {
+            citiesWrapper.insertBefore(newSpan, newSpan.previousElementSibling);
+          }
         }
       });
     };

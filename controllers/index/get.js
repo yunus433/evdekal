@@ -65,7 +65,7 @@ module.exports = (req, res) => {
       },
       cities,
       sortedCities,
-      users,
+      number: users.length,
       day
     });
   });
